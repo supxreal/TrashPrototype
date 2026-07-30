@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrash - Buyer Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-screen p-4 md:p-8 page-transition font-sans">
+
+    <div class="max-w-2xl mx-auto flex justify-between items-center mb-8">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">Receiver Portal</h1>
+            <p class="text-gray-500 text-sm">Welcome, <span id="display-name" class="font-semibold text-blue-600"></span></p>
+        </div>
+        <button id="logout-btn" class="text-sm font-semibold text-red-500 bg-red-50 px-4 py-2 rounded-full hover:bg-red-100 transition">Log Out</button>
+    </div>
+
+    <div class="max-w-2xl mx-auto space-y-6 pb-20">
+        
+        <!-- Store Settings -->
+        <div class="glass-panel p-6">
+            <h2 class="text-lg font-bold text-gray-800 mb-4">Store Settings</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Buying Location</label>
+                    <input type="text" id="store-location" class="apple-input w-full" placeholder="e.g. Building A, 1st Floor">
+                </div>
+                <div class="flex items-center justify-between bg-white/50 p-4 rounded-xl border border-gray-100">
+                    <div>
+                        <p class="font-semibold text-gray-800">Home Pickup Service</p>
+                        <p class="text-xs text-gray-500">Allow users to request pickup</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="pickup-toggle" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500"></div>
+                    </label>
+                </div>
+                <button id="save-settings-btn" class="apple-btn bg-gray-800 hover:bg-gray-900 text-white w-full text-sm">Save Settings</button>
+            </div>
+        </div>
+
+        <!-- NEW: Multi-Waste Transaction Form -->
+        <div class="glass-panel p-6">
+            <h2 class="text-lg font-bold text-gray-800 mb-4">New Transaction (Mix & Match)</h2>
+            
+            <div class="space-y-3 mb-6" id="waste-inputs-container">
+                <!-- ขยะแต่ละประเภทจะถูกสร้างด้วย JavaScript เพื่อให้โค้ดคลีน -->
+            </div>
+
+            <!-- Auto Calculator Display -->
+            <div class="flex justify-between items-center mb-6 px-4 py-3 bg-white/60 rounded-xl">
+                <div class="text-center">
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Total Points</p>
+                    <p id="calc-points" class="text-2xl font-bold text-blue-600">0</p>
+                </div>
+                <div class="text-gray-300 text-2xl">≈</div>
+                <div class="text-center">
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Total Value</p>
+                    <p id="calc-thb" class="text-2xl font-bold text-green-600">฿0.00</p>
+                </div>
+            </div>
+
+            <button id="generate-qr-btn" class="apple-btn bg-blue-600 hover:bg-blue-700 text-white w-full">
+                Generate QR Code
+            </button>
+        </div>
+
+        <!-- NEW: Transaction History (Buyer) -->
+        <div class="glass-panel p-6">
+            <h2 class="text-lg font-bold text-gray-800 mb-4">Recent Transactions</h2>
+            <div id="buyer-history-list" class="space-y-3">
+                <!-- ประวัติจะถูกดึงมาโชว์ตรงนี้ -->
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl transform scale-95 transition-transform duration-300 text-center" id="qr-modal-content">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Scan to Receive</h3>
+            <p class="text-sm text-gray-500 mb-6">Ask the user to scan this QR code.</p>
+            <div class="bg-white p-4 rounded-2xl border-2 border-gray-100 inline-block mb-6 shadow-sm">
+                <div id="qrcode-container"></div>
+            </div>
+            <button id="close-modal-btn" class="apple-btn bg-gray-100 hover:bg-gray-200 text-gray-800 w-full">Done</button>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/buyer.js"></script>
+</body>
+</html>

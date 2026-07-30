@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrash - Login</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-100 via-white to-green-100 min-h-screen flex items-center justify-center p-4 page-transition">
+
+    <!-- Login Card (Apple Glassmorphism Style) -->
+    <div class="glass-panel max-w-md w-full p-8 relative overflow-hidden">
+        <!-- แสงสะท้อนตกแต่งมุมการ์ด -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-300/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-green-300/20 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="text-center mb-8 relative z-10">
+            <!-- Badge อัปเดตใหม่ -->
+            <div class="inline-block bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wide shadow-sm">
+                ✨ VERSION 2.0
+            </div>
+            
+            <h1 class="text-4xl font-bold text-gray-800 tracking-tight mb-2">EcoTrash</h1>
+            <p class="text-gray-500 font-medium text-sm">Turn your waste into rewards.</p>
+            <p class="text-gray-400 text-xs mt-1">Now with <span class="text-green-500 font-semibold">Mix & Match</span> and <span class="text-blue-500 font-semibold">Home Pickup</span>!</p>
+        </div>
+
+        <form id="login-form" class="space-y-6 relative z-10">
+            <div>
+                <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+                <input type="text" id="username" required
+                    class="apple-input w-full shadow-sm"
+                    placeholder="Enter your name (e.g. Kla)">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Select Role</label>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="cursor-pointer relative group">
+                        <input type="radio" name="role" value="User" class="peer sr-only" checked>
+                        <div class="apple-radio-card peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-600 group-hover:bg-white/80">
+                            <div class="text-xl mb-1">♻️</div>
+                            <div class="text-sm">User</div>
+                            <div class="text-[10px] text-gray-400 font-normal mt-1">Throw & Earn</div>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer relative group">
+                        <input type="radio" name="role" value="Buyer" class="peer sr-only">
+                        <div class="apple-radio-card peer-checked:border-green-500 peer-checked:bg-green-50 peer-checked:text-green-600 group-hover:bg-white/80">
+                            <div class="text-xl mb-1">🏪</div>
+                            <div class="text-sm">Buyer</div>
+                            <div class="text-[10px] text-gray-400 font-normal mt-1">Scan & Buy</div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="apple-btn bg-blue-600 hover:bg-blue-700 text-white w-full mt-4 flex justify-center items-center gap-2">
+                Continue 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/db.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

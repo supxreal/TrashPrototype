@@ -1,0 +1,66 @@
+/* กำหนดฟอนต์หลักให้เป็นสไตล์ Apple */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.page-transition {
+    opacity: 1;
+}
+
+.page-transition.fade-out {
+    opacity: 0;
+}
+
+/* Glassmorphism Effect */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 1.5rem; /* rounded-3xl */
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Apple-style Inputs */
+.apple-input {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.75rem; /* rounded-xl */
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.apple-input:focus {
+    background: #fff;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* Apple-style Buttons */
+.apple-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.apple-btn:active {
+    transform: scale(0.97);
+}
+
+/* Radio Cards (Role Selection) */
+.apple-radio-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: #4b5563;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+}
